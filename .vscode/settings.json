@@ -1,0 +1,18 @@
+{
+  "files.associations": {
+    "requirements.txt": "pip-requirements",
+    "**/requirements*.txt": "pip-requirements",
+    "**/*.js": "javascript",
+    "**/*.mjs": "javascript",
+    "**/*.jsx": "javascriptreact"
+  },
+  "python.analysis.ignore": [
+    "requirements.txt",
+    "**/requirements*.txt",
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.jsx",
+    "**/frontend/**"
+  ],
+  "python.analysis.diagnosticMode": "openFilesOnly"
+}
