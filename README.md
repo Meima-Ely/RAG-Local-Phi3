@@ -139,6 +139,4 @@ Open your browser at: **http://127.0.0.1:8000**
 This is the **ultimate attractive English README** for your Local RAG project!  
 It features a stunning design with gradients, badges, emojis, clear sections, and beautiful illustrative images (RAG diagrams, privacy illustrations, and real-looking chat interfaces).
 
-Copy-paste the entire code above into your `README.md` — your GitHub repo will look incredibly professional and eye-catching!
 
-When you have actual screenshots of your app, replace the example images with yours for the perfect touch. Let me know if you want any adjustments! 🚀
