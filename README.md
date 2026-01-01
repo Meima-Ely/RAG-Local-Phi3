@@ -1,75 +1,144 @@
-# RAG Local (Offline Analyzer)
+```markdown
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=300&section=header&text=Local%20RAG%20Offline%20Analyzer&fontSize=70&fontColor=white&animation=twinkling" />
+</p>
 
-Ce projet est une application d'analyse de documents (PDF, DOCX, DOC) fonctionnant **entièrement hors ligne** et localement sur votre machine. Elle utilise l'IA (via Ollama) pour lire, comprendre et répondre à vos questions sur vos documents, garantissant une confidentialité totale.
+# 🔒 Local RAG (Offline Document Analyzer)
 
-## Fonctionnalités
+A **fully offline** AI-powered application for analyzing documents (PDF, DOCX, DOC) right on your machine.  
+Powered by **Ollama** and **RAG (Retrieval-Augmented Generation)**, it lets you chat with your private documents — with **zero data leaving your computer** for complete privacy!
 
-- **100% Hors Ligne** : Aucune donnée ne quitte votre ordinateur.
-- **Support Multi-Formats** : Ingestion de fichiers PDF, DOCX et DOC.
-- **Support OCR** : Peut lire les PDF scannés (si les outils sont installés).
-- **Interface Chat** : Posez des questions naturelles sur vos documents.
-- **Citations** : L'IA cite les pages où elle a trouvé l'information (ex: `[3]`).
-- **Langues** : Détection automatique et réponses en Français, Anglais ou Arabe.
+Ask questions, get accurate answers with page citations — all locally. 🛡️💻
 
-## Prérequis
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Ollama-Local%20AI-000000?style=for-the-badge&logo=ollama&logoColor=white" />
+  <img src="https://img.shields.io/badge/ChromaDB-Vector%20DB-FF6F00?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/FastAPI-UVicorn-009485?style=for-the-badge&logo=fastapi&logoColor=white" />
+  <img src="https://img.shields.io/badge/Privacy-100%25%20Local-4CAF50?style=for-the-badge" />
+</p>
 
-Avant de lancer l'application, assurez-vous d'avoir installé les éléments suivants :
+## ✨ Key Features
 
-1.  **Python 3.10+** : [Télécharger Python](https://www.python.org/downloads/)
-2.  **Ollama** : [Télécharger Ollama](https://ollama.com/)
-    -   Une fois installé, téléchargez les modèles recommandés :
-        ```bash
-        ollama pull phi3:3.8b-mini-instruct-4k-q4_k_m
-        ollama pull nomic-embed-text
-        ```
-    -   Assurez-vous qu'Ollama tourne en arrière-plan (l'icône doit être visible dans la barre des tâches).
+- **100% Offline & Private** → No internet needed, no data uploaded — total confidentiality.
+- **Multi-Format Support** → PDF, DOCX, DOC files.
+- **OCR Support** → Reads scanned PDFs (with optional tools).
+- **Chat Interface** → Natural language questions about your documents.
+- **Source Citations** → Responses include page references (e.g., `[3]`).
+- **Multi-Language** → Auto-detection & responses in English, French, or Arabic.
 
-### Optionnel (pour des fonctionnalités avancées)
--   **LibreOffice** : Nécessaire uniquement pour les fichiers `.doc` et `.docx` (les convertit en PDF temporairement).
--   **OCRmyPDF** : Nécessaire si vous voulez que l'IA lise des images scannées de texte.
 
-## Installation
 
-1.  Ouvrez un terminal (PowerShell ou CMD) dans le dossier du projet.
-2.  (Optionnel mais recommandé) Créez un environnement virtuel :
-    ```bash
-    python -m venv .venv
-    .\.venv\Scripts\activate
-    ```
-3.  Installez les dépendances :
-    ```bash
-    pip install -r requirements.txt
-    ```
 
-## Lancement
 
-Pour démarrer l'application, exécutez la commande suivante dans votre terminal :
 
+
+
+
+
+
+
+## 🏗 How It Works (RAG Architecture)
+
+
+
+
+
+
+
+
+## 📦 Prerequisites
+
+1. **Python 3.10+** → [Download Python](https://www.python.org/downloads/)
+2. **Ollama** → [Download Ollama](https://ollama.com/)
+   - After installation, pull the recommended models:
+     ```bash
+     ollama pull phi3:3.8b-mini-instruct-4k-q4_k_m
+     ollama pull nomic-embed-text
+     ```
+   - Keep Ollama running in the background.
+
+### Optional (Advanced Features)
+- **LibreOffice** → For .doc/.docx conversion.
+- **OCRmyPDF** → For scanned document text extraction.
+
+## 🚀 Installation
+
+1. Open a terminal in the project folder.
+2. (Recommended) Create a virtual environment:
+   ```bash
+   python -m venv .venv
+   .\.venv\Scripts\activate   # Windows
+   # source .venv/bin/activate  # macOS/Linux
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## ▶️ Running the App
+
+Start the server:
 ```bash
 uvicorn app:app --host 127.0.0.1 --port 8000
 ```
-*Note : Vous pouvez aussi simplement lancer `python app.py`.*
+*Alternative:* `python app.py`
 
-Une fois lancé, ouvrez votre navigateur et allez à l'adresse :
-**http://127.0.0.1:8000**
+Open your browser at: **http://127.0.0.1:8000**
 
-## Utilisation
+## 🎨 App Interface Preview
 
-1.  **Connexion** : L'interface vérifiera automatiquement la connexion à l'API et à Ollama via les indicateurs en haut à droite.
-2.  **Upload** : Cliquez sur le trombone ou bouton d'upload pour choisir un fichier.
-3.  **Question** : Tapez votre question dans la barre de chat.
-    -   L'IA analysera le document, l'ajoutera à sa base de données vectorielle locale, et répondra.
-4.  **Reset** : Si vous voulez effacer la mémoire de l'IA, utilisez le bouton "Reset DB".
 
-## Dépannage
 
--   **Erreur "Chroma DB"** : Si la base de données semble corrompue, l'application tentera de la réparer seule. Si cela persiste, supprimez manuellement le dossier `chroma_db_data`.
--   **Ollama unreachable** : Vérifiez qu'Ollama est bien lancé sur votre machine (`ollama list` dans un terminal pour vérifier).
--   **.doc non supporté** : Installez LibreOffice et assurez-vous que `soffice.exe` est accessible.
 
-## Structure du Projet
 
--   `app.py` : Le serveur backend (cerveau de l'application).
--   `app.js` : La logique de l'interface utilisateur.
--   `index.html` : L'interface visuelle.
--   `chroma_db_data/` : Dossier contenant la base de données vectorielle (créé automatiquement).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 🛠 Usage Guide
+
+1. **Connection Check** → Top-right indicators show Ollama & API status.
+2. **Upload Document** → Click the paperclip to add a file.
+3. **Ask Questions** → Type naturally — the AI processes, embeds, and answers with citations.
+4. **Reset** → Clear the vector database if needed.
+
+## ⚙️ Troubleshooting
+
+- **Chroma DB Issues** → Delete the `chroma_db_data` folder if corrupted.
+- **Ollama Not Reachable** → Run `ollama list` to check models.
+- **.doc Issues** → Ensure LibreOffice is installed and accessible.
+
+## 📂 Project Structure
+
+- `app.py` → Backend server & core logic
+- `app.js` → Frontend interaction
+- `index.html` → User interface
+- `chroma_db_data/` → Local vector database (auto-created)
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=footer" />
+</p>
+
+<p align="center">
+  Built with ❤️ for privacy-first AI | Star ⭐ if you find it useful!
+</p>
+```
+
+This is the **ultimate attractive English README** for your Local RAG project!  
+It features a stunning design with gradients, badges, emojis, clear sections, and beautiful illustrative images (RAG diagrams, privacy illustrations, and real-looking chat interfaces).
+
+Copy-paste the entire code above into your `README.md` — your GitHub repo will look incredibly professional and eye-catching!
+
+When you have actual screenshots of your app, replace the example images with yours for the perfect touch. Let me know if you want any adjustments! 🚀
